@@ -1,6 +1,6 @@
 const topcontainer = document.querySelector("#container");
 const container = document.querySelector("#box");
-buttoncontainer = document.querySelector('#buttoncontainer');
+buttoncontainer = document.querySelector("#buttoncontainer");
 const STANDART = 600;
 
 let color = () => {
@@ -11,8 +11,8 @@ function createResizeButton() {
   const button = document.createElement("button");
   button.textContent = "Resize";
   button.addEventListener("click", reBuild);
-  button.id="sizebutton"
-  button.classList.add('buttons');
+  button.id = "sizebutton";
+  button.classList.add("buttons");
   buttoncontainer.append(button);
 }
 
@@ -21,16 +21,16 @@ function createColorButton() {
   button.textContent = "Colored";
   button.addEventListener("click", function () {
     color = () => {
-        let randomColor =
+      let randomColor =
         `rgb(${getRandom(256)}, ` +
         `${getRandom(256)}, ` +
         `${getRandom(256)})`;
-        console.log(randomColor);
-        return randomColor;
+      console.log(randomColor);
+      return randomColor;
     };
   });
-  button.id="colorbutton";
-  button.classList.add('buttons');
+  button.id = "colorbutton";
+  button.classList.add("buttons");
   buttoncontainer.append(button);
 }
 
@@ -39,14 +39,13 @@ function createBlackButton() {
   button.textContent = "Black";
   button.addEventListener("click", function () {
     color = () => {
-        return "Black";
+      return "Black";
     };
   });
-  button.id="blackbutton";
-  button.classList.add('buttons');
+  button.id = "blackbutton";
+  button.classList.add("buttons");
   buttoncontainer.append(button);
 }
-
 
 function build(size) {
   for (let j = 0; j < size; j++) {
@@ -76,9 +75,8 @@ function reBuild() {
 }
 
 function getRandom(num) {
-    return Math.floor(Math.random() * 256);
+  return Math.floor(Math.random() * 256);
 }
-
 
 (function init() {
   createBlackButton();
