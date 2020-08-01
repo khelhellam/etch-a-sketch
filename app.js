@@ -1,6 +1,7 @@
 const topcontainer = document.querySelector("#container");
 const container = document.querySelector("#box");
-const STANDART = 960;
+buttoncontainer = document.querySelector('#buttoncontainer');
+const STANDART = 600;
 
 let color = () => {
   return "black";
@@ -10,12 +11,14 @@ function createResizeButton() {
   const button = document.createElement("button");
   button.textContent = "Resize";
   button.addEventListener("click", reBuild);
-  topcontainer.prepend(button);
+  button.id="sizebutton"
+  button.classList.add('buttons');
+  buttoncontainer.append(button);
 }
 
 function createColorButton() {
   const button = document.createElement("button");
-  button.textContent = "Color";
+  button.textContent = "Colored";
   button.addEventListener("click", function () {
     color = () => {
         let randomColor =
@@ -26,8 +29,24 @@ function createColorButton() {
         return randomColor;
     };
   });
-  topcontainer.prepend(button);
+  button.id="colorbutton";
+  button.classList.add('buttons');
+  buttoncontainer.append(button);
 }
+
+function createBlackButton() {
+  const button = document.createElement("button");
+  button.textContent = "Black";
+  button.addEventListener("click", function () {
+    color = () => {
+        return "Black";
+    };
+  });
+  button.id="blackbutton";
+  button.classList.add('buttons');
+  buttoncontainer.append(button);
+}
+
 
 function build(size) {
   for (let j = 0; j < size; j++) {
@@ -62,6 +81,7 @@ function getRandom(num) {
 
 
 (function init() {
+  createBlackButton();
   createColorButton();
   createResizeButton();
   build(16);
