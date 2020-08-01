@@ -32,6 +32,7 @@ function reBuild() {
   while (container.firstChild) {
     container.removeChild(container.lastChild);
   }
+  createButton();
   build(size);
 }
 

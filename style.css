@@ -5,4 +5,12 @@
 .square{
     display: inline-block;
     background-color: red;
+    border: 0.5px;
+    border-style: solid;
+    box-sizing: border-box;
+}
+
+#box{
+    width: 960px;
+    height: 960px;
 }
