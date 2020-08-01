@@ -4,7 +4,7 @@
 
 .square{
     display: inline-block;
-    background-color: red;
+    background-color: white;
     border: 0.5px;
     border-style: solid;
     box-sizing: border-box;
@@ -13,4 +13,6 @@
 #box{
     width: 960px;
     height: 960px;
+    text-align: center;
+    margin: auto;
 }

@@ -1,11 +1,32 @@
-const container = document.querySelector("#container");
+const topcontainer = document.querySelector("#container");
+const container = document.querySelector("#box");
 const STANDART = 960;
 
-function createButton() {
+let color = () => {
+  return "black";
+};
+
+function createResizeButton() {
   const button = document.createElement("button");
   button.textContent = "Resize";
   button.addEventListener("click", reBuild);
-  container.prepend(button);
+  topcontainer.prepend(button);
+}
+
+function createColorButton() {
+  const button = document.createElement("button");
+  button.textContent = "Color";
+  button.addEventListener("click", function () {
+    color = () => {
+        let randomColor =
+        `rgb(${getRandom(256)}, ` +
+        `${getRandom(256)}, ` +
+        `${getRandom(256)})`;
+        console.log(randomColor);
+        return randomColor;
+    };
+  });
+  topcontainer.prepend(button);
 }
 
 function build(size) {
@@ -17,7 +38,7 @@ function build(size) {
       const square = document.createElement("div");
       square.classList.add("square");
       square.addEventListener("mouseover", function () {
-        this.style.backgroundColor = "blue";
+        this.style.backgroundColor = color();
       });
       square.style.width = `${STANDART / size}px`;
       square.style.height = `${STANDART / size}px`;
@@ -32,11 +53,16 @@ function reBuild() {
   while (container.firstChild) {
     container.removeChild(container.lastChild);
   }
-  createButton();
   build(size);
 }
 
+function getRandom(num) {
+    return Math.floor(Math.random() * 256);
+}
+
+
 (function init() {
-  createButton();
+  createColorButton();
+  createResizeButton();
   build(16);
 })();
